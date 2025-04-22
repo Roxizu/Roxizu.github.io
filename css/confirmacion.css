@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f0ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.confirmation-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.success-icon {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #470c6a;
+    margin-bottom: 10px;
+}
+
+.confirmation-message {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.order-details {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.order-details h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.order-number {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.product-summary {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.product-summary img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.product-info h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 3px;
+}
+
+.next-steps {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+}
+
+.next-steps h3 {
+    color: #470c6a;
+    margin-bottom: 10px;
+}
+
+.next-steps p {
+    color: #666;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.primary-button, .secondary-button {
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.primary-button {
+    background-color: #470c6a;
+    color: white;
+}
+
+.secondary-button {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+.primary-button:hover {
+    background-color: #6a0dad;
+}
+
+.secondary-button:hover {
+    background-color: #dde2e6;
+}
+
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .confirmation-container {
+        box-shadow: none;
+        padding: 20px;
+    }
+    
+    .button-group {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirmation-container {
+        padding: 20px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .primary-button, .secondary-button {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,228 @@
+html {
+
+  background: rgb(14, 20, 18);
+
+}
+
+
+
+* {
+
+  padding: 0px;
+  margin: 0px;
+  font-family: sans-serif;
+
+}
+
+
+
+#contenedor {
+
+  width: auto;
+  height: auto;
+  background: #ffffff;
+  margin-top: 10px;
+  margin: auto;
+
+
+}
+
+
+
+
+
+
+
+header {
+
+  background-color: #470c6a;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+
+
+
+a {
+
+  text-decoration: none;
+  color: #000000;
+  margin-top: -100px;
+  margin-left: 90px;
+  
+
+
+
+
+}
+ 
+
+
+
+
+nav a {
+
+  font-weight: 600;
+  padding-left: 0px;
+
+
+   
+ 
+
+}
+
+
+
+
+
+.imgabajo3 {
+  width: 1100px;
+  height: 400px;
+  margin-left: 70px;
+  margin-right: 70px;
+  
+
+
+}
+
+.logito {
+
+  width: 300px;
+  height: 100px;
+
+
+}
+
+#imglogo{
+
+  width: 300px;
+  height: 100px;
+  background-color: #ff9bce;
+  align-items: center;
+  margin-left: 70px;
+  
+  
+    }
+
+.banner {
+  position: relative;
+  text-align: center;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.texto-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 10px;
+}
+
+.imgabajo1{
+
+  width: 325px;
+  height: 350px;
+  margin-left: 70px;
+  margin-right: 35px;
+  
+}                                    
+
+.imgabajo2{
+
+  width: 735px;
+  height: 350px;
+  margin-left: 0px;
+  margin-right: 50px;
+  
+}
+
+.imgabajo3{
+  width: 1100px;
+  height: 400px;
+  margin-left: 70px;
+  margin-right: 70px;
+  
+
+
+}
+.productos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.producto {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #470c6a;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+footer {
+
+
+
+  height: 243px;
+  background-color: #470c6a;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 97%;
+}
+
+.footerletras {
+  margin-bottom: 10px;
+}
+
+.footerletras h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.footerletras p {
+  margin: 5px 0;
+}
+
+.footerboton {
+  border-top: 1px solid #f4ecfc;
+  padding-top: 10px;
+}
+
+.footerboton p {
+  margin: 0;
+  font-size: 14px;
+}

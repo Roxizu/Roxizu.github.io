@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/agregar-producto.css">
+    <title>Agregar Nuevo Producto</title>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <img src="img/logo de Electronica S.M.R Banner Horizontal.png" alt="Electrónica S.M.R Logo" class="logo-img">
+        <div class="placeholder"></div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Cabecera de la página -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Agregar Nuevo Producto
+            </h1>
+            <p class="page-description">Complete el formulario a continuación para agregar un nuevo producto a la plataforma. Los campos marcados con * son obligatorios.</p>
+        </div>
+        
+        <!-- Formulario -->
+
+<form class="form-container" action="php/agregar-producto.php" method="POST" enctype="multipart/form-data">
+            <div class="form-section">
+                <h2 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                    Información Básica
+                </h2>
+                
+                <div class="form-group">
+                    <label for="product-name" class="form-label">Nombre del Producto *</label>
+                    <input type="text" id="product-name" class="form-input" name="product-name" placeholder="Ej: Auriculares Gaming RGB" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description" class="form-label">Descripción *</label>
+                    <textarea id="product-description" class="form-textarea" name="product-description" placeholder="Describe detalladamente el producto..." required></textarea>
+                    <p class="form-hint">Incluye características, beneficios y cualquier información relevante para el cliente.</p>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="product-category" class="form-label">Categoría *</label>
+                            <select id="product-category" class="form-select" name="product-category" required>
+                                <option value="">Seleccionar categoría</option>
+                                <option value="consolas">Consolas</option>
+                                <option value="accesorios-consolas">Accesorios para consolas</option>
+                                <option value="componentes-pc">Componentes PC</option>
+                                <option value="smartphones">Smartphones y Tablets</option>
+                            </select>
+                        </div>
+                    </div>
+           
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-brand" class="form-label">Marca *</label>
+                    <input type="text" id="product-brand" class="form-input" name="product-brand" placeholder="Ej: Logitech" required>
+                </div>
+            </div>
+            
+            <!-- Precios e inventario -->
+            <div class="form-section">
+                <h2 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    Precios e Inventario
+                </h2>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="product-price" class="form-label">Precio Regular (RD$) *</label>
+                            <input type="number" id="product-price" name="product-price" class="form-input" placeholder="Ej: 2500" min="0" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="product-sale-price" class="form-label">Precio de Oferta (RD$)</label>
+                            <input type="number" id="product-sale-price" name="product-sale-price" class="form-input" placeholder="Ej: 1999" min="0" step="0.01">
+                            <p class="form-hint">Dejar en blanco si no hay oferta.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="product-stock" class="form-label">Cantidad en Stock *</label>
+                            <input type="number" id="product-stock" name="product-stock" class="form-input" placeholder="Ej: 50" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="product-sku" class="form-label">SKU / Código de Producto *</label>
+                            <input type="text" id="product-sku" name="product-sku" class="form-input" placeholder="Ej: TG-AUR-001" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Estado del Producto *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="product-status" class="radio-input" value="active" checked>
+                            Activo (Visible y disponible para compra)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="product-status" class="radio-input" value="inactive">
+                            Inactivo (No visible en la tienda)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="product-status" class="radio-input" value="coming-soon">
+                            Próximamente (Visible pero no disponible para compra)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Imágenes -->
+            <div class="form-section">
+                <h2 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    Imágenes del Producto
+                </h2>
+                
+                <p class="form-hint">Sube al menos una imagen del producto. Recomendamos imágenes de alta calidad con fondo blanco. Tamaño mínimo: 800x800px.</p>
+                
+                <div class="image-upload-container">
+                    <label class="image-upload-box">
+                        <div class="image-upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <span class="image-upload-text">Imagen Principal *</span>
+                        <input type="file" name="image-upload-input[]" class="image-upload-input" accept="image/*" required>
+                    </label>
+                    
+                    <label class="image-upload-box">
+                        <div class="image-upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <span class="image-upload-text">Imagen Adicional</span>
+                        <input type="file" name="image-upload-input[]" class="image-upload-input" accept="image/*">
+                    </label>
+                    
+                    <label class="image-upload-box">
+                        <div class="image-upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <span class="image-upload-text">Imagen Adicional</span>
+                        <input type="file" name="image-upload-input[]" class="image-upload-input" accept="image/*">                    </label>
+                    
+                    <label class="image-upload-box">
+                        <div class="image-upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <span class="image-upload-text">Imagen Adicional</span>
+                        <input type="file" name="image-upload-input[]" class="image-upload-input" accept="image/*">                    </label>
+                </div>
+            </div>
+            
+            <!-- Opciones adicionales -->
+            <div class="form-section">
+                <h2 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-lin  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                    Opciones Adicionales
+                </h2>
+                
+                <div class="form-group">
+                    <label class="form-label">Características Destacadas</label>
+                    <div class="checkbox-group">
+                    
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="checkbox-input" name="new">
+                            Marcar como "Nuevo"
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="checkbox-input" name="bestseller">
+                            Marcar como "Más Vendido"
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="checkbox-input" name="limited">
+                            Marcar como "Edición Limitada"
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-warranty" class="form-label">Garantía</label>
+                    <select id="product-warranty" class="form-select" name="garantia" >
+                        <option value="">Sin garantía</option>
+                        <option value="3">3 meses</option>
+                        <option value="6">6 meses</option>
+                        <option value="12">1 año</option>
+                        <option value="24">2 años</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-tags" class="form-label">Etiquetas</label>
+                    <input type="text" id="product-tags" name="product-tags" class="form-input" placeholder="Ej: gaming, auriculares, inalámbrico (separadas por comas)">
+                    <p class="form-hint">Las etiquetas ayudan a los clientes a encontrar tu producto en las búsquedas.</p>
+                </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="form-actions">
+                <a href="perfil-empresa.html" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar Producto</button>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const imageInputs = document.querySelectorAll('.image-upload-input');
+    
+    imageInputs.forEach(input => {
+        input.addEventListener('change', function(e) {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                const uploadBox = this.closest('.image-upload-box');
+                
+                reader.onload = function(e) {
+                    // Eliminar vista previa anterior si existe
+                    const existingPreview = uploadBox.querySelector('.image-preview');
+                    if (existingPreview) {
+                        existingPreview.remove();
+                    }
+                    
+                    // Crear nueva vista previa
+                    const preview = document.createElement('div');
+                    preview.className = 'image-preview';
+                    preview.style.backgroundImage = `url(${e.target.result})`;
+                    
+                    // Ocultar el ícono y texto por defecto
+                    const icon = uploadBox.querySelector('.image-upload-icon');
+                    const text = uploadBox.querySelector('.image-upload-text');
+                    icon.style.display = 'none';
+                    text.style.display = 'none';
+                    
+                    uploadBox.appendChild(preview);
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+});
+</script>

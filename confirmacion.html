@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <link rel="stylesheet" href="css/confirmacion.css">
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+        </div>
+        
+        <h1>¡Gracias por tu compra!</h1>
+        <p class="confirmation-message">Tu pedido ha sido procesado con éxito</p>
+        
+        <div class="order-details">
+            <h2>Detalles de la compra</h2>
+            <div class="order-number">
+                <span>Número de Orden:</span>
+                <span>#ORD-2024-001</span>
+            </div>
+            
+            <div class="product-summary">
+                <img src="img/61qX3f8v5kL.jpg" alt="Mando xbox one">
+                <div class="product-info">
+                    <h3>Mando xbox one</h3>
+                    <p>Cantidad: 1</p>
+                    <p>Total: RD$350</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="next-steps">
+            <h3>¿Qué sigue?</h3>
+            <p>Recibirás un correo electrónico con los detalles de tu compra</p>
+        </div>
+
+        <div class="button-group">
+            <a href="index.html" class="primary-button">Volver al Inicio</a>
+            <a href="#" class="secondary-button" onclick="window.print()">Imprimir Recibo</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get stored values with proper parsing
+    const quantity = parseInt(localStorage.getItem('finalQuantity')) || 1;
+    const total = parseInt(localStorage.getItem('finalTotal')) || 350;
+    
+    // Update quantity and total in the confirmation page
+    const quantityElement = document.querySelector('.product-info p:first-of-type');
+    const totalElement = document.querySelector('.product-info p:last-of-type');
+    
+    if (quantityElement) {
+        quantityElement.textContent = `Cantidad: ${quantity}`;
+        console.log('Updated quantity:', quantity); // Debug log
+    }
+    
+    if (totalElement) {
+        totalElement.textContent = `Total: RD$${total}`;
+        console.log('Updated total:', total); // Debug log
+    }
+    
+    // Generate random order number
+    const orderNumber = document.querySelector('.order-number span:last-child');
+    if (orderNumber) {
+        const randomNum = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+        orderNumber.textContent = `#ORD-2024-${randomNum}`;
+    }
+    
+    // Clear storage after displaying
+    localStorage.removeItem('finalQuantity');
+    localStorage.removeItem('finalTotal');
+    localStorage.removeItem('finalSubtotal');
+    localStorage.removeItem('purchaseQuantity');
+    localStorage.removeItem('purchaseTotal');
+});
+</script>

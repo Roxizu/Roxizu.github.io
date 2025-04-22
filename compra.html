@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/compra.css">
+    <title>Compra del Producto</title>
+    <script src="js/user-nav.js"></script>
+</head>
+
+<body>
+
+    <div class="purchase-container">
+        <div class="progress-bar">
+            <div class="step-indicator active">1. Pago</div>
+            <div class="step-indicator">2. Confirmación</div>
+        </div>
+
+       <!-- ... existing header ... -->
+<div class="purchase-content">
+    <!-- Step 1: Payment Information -->
+    <section class="purchase-step active" id="payment-step">
+        <h2>Método de Pago</h2>
+        <form id="payment-form">
+            <div class="payment-options">
+                <div class="payment-option">
+                    <input type="radio" id="credit-card" name="payment-method" checked>
+                    <label for="credit-card">
+                        <img src="img/tarjeta-de-credito.png" alt="Credit Card">
+                        Tarjeta de Crédito/Débito
+                    </label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="paypal" name="payment-method">
+                    <label for="paypal">
+                        <img src="img/Paypal logo.png" alt="PayPal">
+                        PayPal
+                    </label>
+                </div>
+            </div>
+
+            <!-- Credit Card Details -->
+            <div id="card-details">
+                <div class="form-group">
+                    <label for="card-number">Número de Tarjeta</label>
+                    <input type="text" id="card-number" maxlength="16" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Fecha de Expiración</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" maxlength="3" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PayPal Details -->
+            <div id="paypal-details" style="display: none;">
+                <div class="paypal-instructions">
+                    <h3>Pago con PayPal</h3>
+                    <ol>
+                        <li>Al hacer clic en "Revisar Compra", serás redirigido a PayPal</li>
+                        <li>Inicia sesión en tu cuenta de PayPal</li>
+                        <li>Confirma tu dirección y método de pago</li>
+                        <li>Revisa y confirma tu pedido</li>
+                    </ol>
+                    <div class="paypal-notice">
+                        <img src="img/pagos-seguros-autorizado.png" alt="PayPal Secure">
+                        <p>Pago seguro a través de PayPal. Tus datos financieros nunca son compartidos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <a href="producto.html" class="back-link"><button type="button" class="back-btn">Volver</button></a>
+                <button type="button" class="next-btn">Revisar Compra</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Step 2: Order Review -->
+    <section class="purchase-step" id="review-step">
+            <h2>Resumen de la Compra</h2>
+            <div class="order-summary">
+                <div class="product-info">
+                    <img src="img/61qX3f8v5kL.jpg" alt="Mando xbox one">
+                    <div class="product-details">
+                        <h3>Mando xbox one</h3>
+                        <p class="quantity">Cantidad: 1</p>
+                        <p class="price">RD$300</p>
+                    </div>
+                </div>
+
+                <div class="payment-summary">
+                    <h3>Método de Pago</h3>
+                    <p id="summary-payment"></p>
+                </div>
+
+                <div class="price-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>RD$300</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío:</span>
+                        <span>RD$50</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span>RD$350</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <a href="compra.html"><button type="button" class="back-btn">Volver</button></a>
+                <button type="button" class="confirm-btn">Confirmar Compra</button>
+               
+            </div>
+        </section>
+    </div>
+</div>
+    </section>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const creditCardRadio = document.getElementById('credit-card');
+    const paypalRadio = document.getElementById('paypal');
+    const cardDetails = document.getElementById('card-details');
+    const paypalDetails = document.getElementById('paypal-details');
+    const nextBtn = document.querySelector('.next-btn');
+
+    function togglePaymentMethod() {
+        if (creditCardRadio.checked) {
+            cardDetails.style.display = 'block';
+            paypalDetails.style.display = 'none';
+            nextBtn.textContent = 'Revisar Compra';
+        } else {
+            cardDetails.style.display = 'none';
+            paypalDetails.style.display = 'block';
+            nextBtn.textContent = 'Pagar con PayPal';
+        }
+    }
+
+    creditCardRadio.addEventListener('change', togglePaymentMethod);
+    paypalRadio.addEventListener('change', togglePaymentMethod);
+
+    nextBtn.addEventListener('click', function() {
+        if (paypalRadio.checked) {
+            window.location.href = 'https://www.paypal.com/signin';
+        }
+    });
+
+    // Initial state
+    togglePaymentMethod();
+});
+</script>
+             
+
+
+<!-- Remove the existing inline script and keep only this -->
+<script src="js/compra.js"></script>
+
+
+</body>
+
+</html>

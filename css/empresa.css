@@ -1,0 +1,226 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #d3b5f0 , #ffffff);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Remove the navbar styles and replace with a form back button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #673ab7;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: 1px solid #673ab7;
+}
+
+.back-button:hover {
+    background-color: #673ab7;
+    color: white;
+}
+
+.form-container {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f4ecfc;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* Add this */
+}
+
+/* Remove these as they're no longer needed */
+.navbar, .logo, .placeholder {
+    display: none;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f4ecfc;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+img{
+
+    height: 1000px;
+    width: 610px;
+
+}
+/* Overlay de la imagen */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(103, 58, 183, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.image-overlay h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.image-overlay p {
+    font-size: 1.2rem;
+    max-width: 80%;
+}
+
+/* Estilos del formulario */
+h1 {
+    color: #673ab7;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: #34495e;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #673ab7;
+    box-shadow: 0 0 0 2px rgba(100, 21, 161, 0.2);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #673ab7;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    width: 100%;
+}
+
+
+button:hover {
+    background-color: #5e35b1;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #34495e;
+}
+
+.login-link a {
+    color: #673ab7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.required::after {
+    content: " *";
+    color: #673ab7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .image-container {
+        display: none;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

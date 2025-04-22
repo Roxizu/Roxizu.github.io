@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/empresa.css">
+    <title>Registro Empresarial</title>
+    </head>
+
+    <body>
+
+
+
+    <div class="container">
+        <div class="form-container">
+            <a href="elegir.html" class="back-button">←</a>
+<br><br>
+            <h1>Registro Empresarial</h1>
+
+            <p class="subtitle">Complete el formulario para crear su cuenta corporativa</p>
+
+            <form id="registroForm" action="php/procesar_registro1.php" method="post">
+
+                <div class="form-group">
+                    <label for="company-name" class="required">Nombre de la empresa</label>
+                    <input type="text" id="nombre_empre" name="nombre_empreuser" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombreuser">
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="required">Dirección</label>
+                    <input type="text" id="dirección" name="direccionuser" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono" class="required">Telefono</label>
+                    <input type="tel" id="telefono" name="telefonouser" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">Correo electrónico corporativo</label>
+                    <input type="email" id="email" name="emailuser" required>
+                </div>
+
+                <div class="form-group">
+                        <label for="rnc" class="required">RNC</label>
+                        <input type="text" id="rnc" name="rncuser" required>
+                    </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password" class="required">Contraseña</label>
+                        <input type="password" id="password" name="passworduser" required>
+                    </div>
+
+
+                </div>
+
+
+
+                <button type="submit">Registrar empresa</button>
+            </form>
+
+            <div class="login-link">
+                ¿Ya tiene una cuenta? <a href="login1.html">Iniciar sesión</a>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="img/f5df8ce477d937ce0171deb31949072f.jpg">
+            <div class="image-overlay">
+                <h2>Impulse su negocio</h2>
+                <p>Únase y descubra nuevas oportunidades para hacer crecer su empresa.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- Add this before closing </head> tag -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registroForm');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate RNC format (9 digits)
+        const rnc = document.getElementById('rnc').value;
+        if (!/^\d{9}$/.test(rnc)) {
+            alert('El RNC debe contener exactamente 9 dígitos');
+            return;
+        }
+
+
+        // If all validations pass, submit the form
+        form.submit();
+    });
+});
+</script>

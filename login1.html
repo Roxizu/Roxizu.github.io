@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login3.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <!-- Barra de navegación simplificada -->
+    <nav class="navbar">
+        <a href="elegir.html" class="back-button">←</a>
+        <div class="logo">Electrónica S.M.R</div>
+        <div class="placeholder"></div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <div class="login-container">
+            <div class="login-header">
+                <h1 class="login-title">Portal Empresarial</h1>
+                <p class="login-subtitle">Acceda a su cuenta corporativa</p>
+            </div>
+
+            <form action="php/inicio 2.php" method="post">
+                <div class="form-group">
+                    <label for="email" class="form-label">Correo electrónico corporativo</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="nombre@empresa.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" id="password" name="contra" class="form-input" placeholder="••••••••" required>
+                </div>
+
+                <div class="forgot-password-container">
+                    <a href="#" class="forgot-password">¿Olvidó su contraseña?</a>
+                </div>
+
+                <button type="submit" class="login-button">Iniciar Sesión</button>
+
+                <div class="register-section">
+                    <p class="register-text">¿No tienes una cuenta?</p>
+                    <a href="empresa.html" class="register-link">Regístrate ahora</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Política de privacidad</a>
+            <a href="#" class="footer-link">Ayuda</a>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2025 Electrónica S.M.R. Todos los derechos reservados.
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

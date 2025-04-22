@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="css/produc.css">
+    <script src="js/product-permissions.js"></script>
+    <script src="js/user-nav.js"></script>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo de Electronica S.M.R Banner Horizontal.png" alt="Electrónica S.M.R Logo" class="logo-img">
+            </div>
+            <ul>
+                <a href="index.html"><li>Inicio</li></a>
+               <a href="catalogo.html"> <li>Productos</li></a>
+               <a href="ofertas.html"> <li>Ultimas Ofertas</li> </a>
+               <a href="nosotros.html"> <li>Sobre nosotros</li></a>
+               <a href="contacto.html"> <li>Contacto</li></a>
+            </ul>
+            <div class="carrito-buscar">
+              
+                <div class="search-container">
+                    <input type="text" placeholder="Buscar" class="search-input">
+                    <button class="search-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </div>
+                <a href="elegir.html" class="user-nav-link">
+                    <div class="user-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+          
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Detalle del producto -->
+        <div class="product-detail">
+            <!-- Galería de imágenes -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="img/61qX3f8v5kL.jpg" alt="Mando xbox one">
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail">
+                        <img src="img/descarga (2).jpg" alt="Mando xbox one - Vista 1">
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Información del producto -->
+            <div class="product-info">
+                <h1 class="product-title">Mando xbox one</h1>
+                <div class="company-name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                   Vendido por: <a href="perfil-empresa.html" class="empre"> <strong>TechGaming RD</strong></a>
+                </div>
+                <div class="product-price">RD$300</div>
+                
+                <div class="product-description">
+                    <p>Control inalámbrico oficial de Xbox One, diseñado para brindar una experiencia de juego inmersiva y cómoda. Con tecnología Bluetooth para conectar a tu consola Xbox One, PC con Windows 10 o dispositivos móviles compatibles.</p>
+                    
+                </div>
+                
+                <div class="product-specs">
+                    <h3 class="specs-title">Especificaciones</h3>
+                    <ul class="specs-list">
+                        <li>
+                            <div class="spec-name">Conectividad</div>
+                            <div>Bluetooth, USB-C</div>
+                        </li>
+                        <li>
+                            <div class="spec-name">Compatibilidad</div>
+                            <div>Xbox One, Xbox Series X|S, Windows 10/11, Android, iOS</div>
+                        </li>
+                        <li>
+                            <div class="spec-name">Alimentación</div>
+                            <div>2 pilas AA (incluidas) o batería recargable (vendida por separado)</div>
+                        </li>
+                        <li>
+                            <div class="spec-name">Color</div>
+                            <div>Negro</div>
+                        </li>
+                        <li>
+                            <div class="spec-name">Garantía</div>
+                            <div>1 año</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="quantity-selector">
+                    <div class="quantity-label">Cantidad:</div>
+                    <div class="quantity-controls">
+                        <button type="button" class="quantity-btn minus-btn" onclick="decrementQuantity()">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10" class="quantity-input" onchange="validateQuantity(this)">
+                        <button type="button" class="quantity-btn plus-btn" onclick="incrementQuantity()">+</button>
+                    </div>
+                </div>
+                
+                <a href="compra.html"><button type="button" class="buy-now-btn" onclick="proceedToCheckout()">Comprar ahora</button></a>
+                </div>
+                
+           
+        </div>
+        
+        <!-- Sección de comentarios -->
+        <div class="comments-section">
+            <h2 class="section-title">Comentarios y valoraciones</h2>
+            
+            <!-- Formulario para agregar comentarios -->
+            <div class="comments-form">
+                <h3 class="specs-title">Deja tu opinión</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" id="name" class="form-input" placeholder="Tu nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" id="email" class="form-input" placeholder="Tu correo electrónico" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Valoración</label>
+                        <div class="star-rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment" class="form-label">Comentario</label>
+                        <textarea id="comment" class="form-textarea" placeholder="Escribe tu opinión sobre este producto" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-comment-btn">Enviar comentario</button>
+                </form>
+            </div>
+            
+            <!-- Lista de comentarios - Ahora vacía -->
+            <div class="comments-list">
+                <!-- Los comentarios se mostrarán aquí cuando los usuarios los envíen -->
+            </div>
+        </div>
+        
+        <!-- Productos relacionados -->
+        <div class="related-products">
+            <h2 class="section-title">Productos relacionados</h2>
+            
+            <div class="products-grid">
+                <!-- Producto relacionado 1 -->
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="img/images (6).jpg" alt="Auriculares Xbox">
+                    </div>
+                    <div class="product-card-name">Auriculares Xbox</div>
+                    <div class="product-card-price">RD$200</div>
+                    <p class="vendor">Vendido por: TechStore RD</p>
+                </div>
+                
+                <!-- Producto relacionado 2 -->
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="" alt="Base de carga">
+                    </div>
+                    <div class="product-card-name">Base de carga para mandos</div>
+                    <div class="product-card-price">RD$150</div>
+                    <p class="vendor">Vendido por: PC Accessories RD</p>
+                </div>
+                
+                <!-- Producto relacionado 3 -->
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="/placeholder.svg?height=150&width=150" alt="Batería recargable">
+                    </div>
+                    <div class="product-card-name">Batería recargable Xbox</div>
+                    <div class="product-card-price">RD$80</div>
+                    <p class="vendor">Vendido por: TechStore RD</p>
+                </div>
+                
+                <!-- Producto relacionado 4 -->
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <img src="img/15052.jpg" alt="Cable USB-C">
+                    </div>
+                    <div class="product-card-name">Cable USB-C 3m</div>
+                    <div class="product-card-price">RD$40</div>
+                    <p class="vendor">Vendido por: PC Accessories RD</p>
+                
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="faq">
+            <h2>Preguntas Frecuentes (FAQ)</h2>
+            <br>
+            <ul>
+                <li>Pregunta más frecuente 1</li>
+                <br>
+                <li>Pregunta más frecuente 2</li>
+                <br>
+                <li>Pregunta más frecuente 3</li>
+            </ul>
+        </div>
+        <div class="info-contacto">
+            <h3>Electrónica S.M.R</h3>
+            <br>
+            <p>Innovación y tecnología a tu alcance.</p>
+            <br>
+            <p>Dirección:Av. Bartolomé Colón, Santiago de los Caballeros, República Dominicana</p>
+            <br>
+            <p>Teléfono:(809) 456-7890</p>
+            <br>
+            <p>Email:contacto@electronicasmr.com</p>
+           
+        </div>
+
+        <p class="footerboton"> 2024 Electrónica S.M.R. Todos los derechos reservados.</p>
+    </footer>
+
+
+
+</body>
+<script>
+    function incrementQuantity() {
+        const input = document.getElementById('quantity');
+        const currentValue = parseInt(input.value);
+        if (currentValue < 10) {
+            input.value = currentValue + 1;
+            updatePrice(currentValue + 1);
+        }
+    }
+
+    function decrementQuantity() {
+        const input = document.getElementById('quantity');
+        const currentValue = parseInt(input.value);
+        if (currentValue > 1) {
+            input.value = currentValue - 1;
+            updatePrice(currentValue - 1);
+        }
+    }
+
+    function validateQuantity(input) {
+        let value = parseInt(input.value);
+        if (isNaN(value) || value < 1) {
+            input.value = 1;
+            updatePrice(1);
+        } else if (value > 10) {
+            input.value = 10;
+            updatePrice(10);
+        } else {
+            updatePrice(value);
+        }
+    }
+
+    function updatePrice(quantity) {
+        const basePrice = 300; // Price per unit
+        const total = basePrice * quantity;
+        localStorage.setItem('purchaseQuantity', quantity);
+        localStorage.setItem('purchaseTotal', total);
+    }
+
+    function proceedToCheckout() {
+        const quantity = document.getElementById('quantity').value;
+        updatePrice(quantity);
+    }
+</script>
+</html>
