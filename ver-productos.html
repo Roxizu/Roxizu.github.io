@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Productos - Panel de Control</title>
+    <link rel="stylesheet" href="css/ver-productos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="perfil-empresa.html">
+            <img src="img/logo de Electronica S.M.R Banner Horizontal.png" alt="Logo" class="logo-img">
+        </a>
+    </nav>
+
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-box"></i>
+                Gestión de Productos
+            </h1>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos...">
+            <select id="statusFilter" class="filter-select">
+                <option value="todos">Todos los estados</option>
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+                <option value="proximamente">Próximamente</option>
+            </select>
+        </div>
+
+        <div class="products-table">
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productsTableBody">
+                    <!-- Los productos se cargarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirmar Eliminación</h2>
+            <p>¿Estás seguro de que deseas eliminar este producto?</p>
+            <div class="modal-buttons">
+                <button id="confirmDelete" class="btn btn-delete">Eliminar</button>
+                <button id="cancelDelete" class="btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/ver-productos.js"></script>
+</body>
+</html>

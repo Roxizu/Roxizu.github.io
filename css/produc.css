@@ -61,7 +61,7 @@
   nav {
       flex-grow: 1;
       display: flex;
-      justify-content: flex;
+      justify-content: center;
       align-items: center;
   }
 
@@ -69,8 +69,9 @@
       list-style: none;
       display: flex;
       gap: 20px;
-      padding: 0;
+      padding: 0px;
       margin: 0;
+      transform: translateY(34%);
   }
 
   .carrito-buscar {
@@ -127,8 +128,6 @@
 .user-icon:hover {
     background-color: #7c54c4;
 }
-
-/* ... rest of existing styles ... */
 
   /* Contenido principal */
   .main-content {
@@ -626,23 +625,116 @@
       }
   }
 
+  @media screen and (max-width: 768px) {
+      .product-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+      }
+  
+      .filters {
+          flex-direction: column;
+          padding: 10px;
+      }
+  
+      .filter-group {
+          width: 100%;
+          margin: 5px 0;
+      }
+  
+      .sort-options {
+          width: 100%;
+      }
+  }
+
   @media (max-width: 768px) {
-      .nav-links {
-          display: none;
+      header {
+          flex-direction: column;
+          padding: 15px;
+          position: relative;
+      }
+
+      .logo {
+          order: -1;
+          margin: 0;
+          width: 100%;
+          text-align: center;
+      }
+
+      .logo-img {
+          height: 60px;
+          width: auto;
+      }
+
+      nav {
+          width: 100%;
+      }
+
+      nav ul {
+          transform: none;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          gap: 10px;
+          margin: 15px 0;
+      }
+
+      nav ul li {
+          width: 100%;
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav ul a {
+          display: block;
+          width: 100%;
+      }
+
+      .search-container {
+          width: 100%;
+          margin: 10px 0;
+          display: flex;
+          justify-content: center;
       }
 
       .search-input {
-          width: 150px;
+          width: 80%;
+          max-width: none;
       }
 
-      .thumbnail-container {
+      .carrito-buscar {
+          width: 100%;
+          margin: 10px 0;
+          padding: 0;
           justify-content: center;
+          order: 3;
+      }
+
+      .user-icon {
+          margin: 10px auto;
       }
   }
 
   @media (max-width: 480px) {
+      header {
+          padding: 10px;
+      }
+
+      .logo-img {
+          height: 50px;
+      }
+
+      nav ul {
+          gap: 5px;
+      }
+
       .search-input {
-          width: 120px;
+          width: 90%;
+      }
+
+      .user-icon {
+          min-width: 25px;
+          height: 25px;
+          padding: 0 10px;
       }
   }
 
