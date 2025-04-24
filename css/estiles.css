@@ -228,19 +228,19 @@ text-align: center;
 
 .imagen-principal {
   width: 70%;
-  height: 400px;
+  height: 300px;
   
 }
 
 .carousel-container {
   display: flex;
   transition: transform 0.5s ease;
-  height: 100%;
+  height: 300px;
 }
 
 .carousel-slide {
   min-width: 100%;
-  height: 100%;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,9 +249,19 @@ text-align: center;
 
 .carousel-slide img {
   width: 100%;
-  height: 100%;
+  height: 300px;
   object-fit: cover;
 }
+
+.carousel-slide2  {
+    min-width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6a1b9a;
+  }
+  
 
 /* Estilos para slides promocionales con imagen de fondo */
 .promo-slide {
@@ -386,12 +396,17 @@ color: #000000;
   
 
 
-  .destacado {
+
+.destacado {
     width: 80%;
-    height: 200px; /* Aumentado para acomodar las imágenes */
+    height: 300px; /* Reducido de 200px a 150px */
     background-color: #7b1fa2;
     margin: 20px auto;
-  }
+}
+
+.destacado-carousel {
+    height: 100%;
+}
 
 footer {
     background-color: #470c6a;
@@ -496,4 +511,183 @@ footer {
 
 .info-contacto {
     margin-top: 20px;
+}
+
+/* Estilos responsivos para el banner y carousel */
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.imagen-principal {
+    width: 70%;
+    height: 400px;
+}
+
+/* Estilos de productos */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.producto {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 1s;
+}
+
+.producto:hover {
+    background-color: #9670ad;
+    transform: translateY(-5px);
+}
+
+.producto img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+    .productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .imagen-principal {
+        width: 90%;
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .imagen-principal {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .producto {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+.search-button svg {
+    color: #000000;
+}
+
+.search-button:hover svg {
+    color: #333333;
+}
+
+
+/* Estilos responsivos para la sección destacada */
+.destacado {
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 200px;
+    margin: 40px auto;
+}
+
+.destacado-carousel {
+    height: 100%;
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+    .productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .imagen-principal {
+        width: 95%;
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .imagen-principal {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .promo-content {
+        padding: 15px;
+    }
+    
+    .destacado {
+        width: 100%;
+        margin: 20px auto;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin: 15px 0;
+    }
+}
+
+/* Ajustes responsivos para el footer */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px;
+    }
+    
+    .faq, .info-contacto {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .faq ul {
+        margin: 10px 0;
+    }
+    
+    .info-contacto {
+        margin-top: 20px;
+    }
+    
+    .footerboton {
+        margin-top: 20px;
+    }
 }
