@@ -42,21 +42,43 @@ if ($result->num_rows > 0) {
     exit;
 }
 
-// ... existing code ...
+// Modificar la consulta para incluir campos adicionales necesarios para el panel de administrador
+$stmt = $conn->prepare("INSERT INTO login (
+    nombre_empresa, 
+    nombre, 
+    direccion, 
+    telefono, 
+    email, 
+    RNC, 
+    contra, 
+    role,
+    fecha_registro,
+    estado,
+    porcentaje_comision
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), 'activo', 5.00)");
 
-// Prepare SQL with role field
-$stmt = $conn->prepare("INSERT INTO login (nombre_empresa, nombre, direccion, telefono, email, RNC, contra, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 if ($stmt) {
-    $stmt->bind_param("ssssssss", $nombre_empresa, $nombre, $direccion, $telefono, $email, $RNC, $contra, $role);
+    $stmt->bind_param("ssssssss", 
+        $nombre_empresa, 
+        $nombre, 
+        $direccion, 
+        $telefono, 
+        $email, 
+        $RNC, 
+        $contra, 
+        $role
+    );
    
     if ($stmt->execute()) {
+       
+ 
+
         // Start session and store user data
         session_start();
-        $_SESSION['user_id'] = $conn->insert_id;
+        $_SESSION['user_id'] = $empresa_id;
         $_SESSION['role'] = 'empresa';
         $_SESSION['nombre_empresa'] = $nombre_empresa;
 
-        // Fix the redirect URL
         echo '
         <script>
             alert("Registro exitoso");

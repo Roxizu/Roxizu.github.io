@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="css/admin-panel.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Panel de Administrador</div>
+        <a href="php/logout.php" class="logout-btn">Cerrar Sesión</a>
+    </nav>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="empresas">Empresas</button>
+            <button class="tab-btn" data-tab="clientes">Clientes</button>
+        </div>
+
+        <div class="tab-content active" id="empresas">
+            <h2>Lista de Empresas</h2>
+            <div class="search-container">
+                <input type="text" id="searchEmpresa" placeholder="Buscar por RNC...">
+                <button onclick="buscarEmpresa()">Buscar</button>
+            </div>
+            <div class="table-container">
+                <table id="empresasTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre Empresa</th>
+                            <th>RNC</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Ganancias</th>
+                            <th>Porcentaje</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Se llenará dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-content" id="clientes">
+            <h2>Lista de Clientes</h2>
+            <div class="search-container">
+                <input type="text" id="searchCliente" placeholder="Buscar por email...">
+                <button onclick="buscarCliente()">Buscar</button>
+            </div>
+            <div class="table-container">
+                <table id="clientesTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Se llenará dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-panel.js"></script>
+</body>
+</html>

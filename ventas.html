@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ventas</title>
+    <link rel="stylesheet" href="css/ventas.css">
+</head>
+<body>
+    <div class="ventas-container">
+        <h1 class="titulo-ventas">Registro de Ventas</h1>
+
+        <div class="filtros">
+            <input type="date" class="filtro-input" id="fecha-busqueda" placeholder="Seleccionar fecha">
+            <input type="text" class="filtro-input" id="buscar-producto" placeholder="Buscar producto...">
+            <button class="btn-filtrar" onclick="filtrarVentas()">Filtrar</button>
+        </div>
+
+        <table class="tabla-ventas">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="ventas-body">
+                <tr>
+                    <td>2024-01-15</td>
+                    <td>Teclado Mecánico RGB</td>
+                    <td>2</td>
+                    <td>RD$420.00</td>
+                    <td>RD$840.00</td>
+                </tr>
+                <tr>
+                    <td>2024-01-15</td>
+                    <td>Mando xbox one</td>
+                    <td>1</td>
+                    <td>RD$300.00</td>
+                    <td>RD$300.00</td>
+                </tr>
+                <!-- Más filas de ventas aquí -->
+            </tbody>
+        </table>
+
+        <div class="total-ventas" id="total">
+            Total de Ventas: RD$0
+        </div>
+
+        <div class="button-container">
+            <a href="perfil-empresa.html" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Volver al Perfil
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const filas = document.querySelectorAll('#ventas-body tr');
+            let total = 0;
+            
+            filas.forEach(fila => {
+                const precioTexto = fila.querySelector('td:last-child').textContent;
+                const precio = parseFloat(precioTexto.replace('RD$', '').replace(',', ''));
+                total += isNaN(precio) ? 0 : precio;
+            });
+
+            // Actualizar el total en la página
+            document.getElementById('total').textContent = `Total de Ventas: RD$${total.toLocaleString()}`;
+            
+            // Guardar el total en localStorage para que esté disponible para otras páginas
+            localStorage.setItem('totalVentas', total);
+        }
+
+        function cargarVentas() {
+            const ventasBody = document.getElementById('ventas-body');
+            const ventas = JSON.parse(localStorage.getItem('ventas')) || [];
+            
+            // Limpiar tabla
+            ventasBody.innerHTML = '';
+            
+            // Agregar ventas a la tabla
+            ventas.forEach(venta => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${venta.fecha}</td>
+                    <td>${venta.producto}</td>
+                    <td>${venta.cantidad}</td>
+                    <td>${venta.precioUnitario}</td>
+                    <td>${venta.total}</td>
+                `;
+                ventasBody.appendChild(fila);
+            });
+            
+            calcularTotal();
+        }
+    
+        function filtrarVentas() {
+            const fecha = document.getElementById('fecha-busqueda').value;
+            const busqueda = document.getElementById('buscar-producto').value.toLowerCase();
+            
+            const ventas = JSON.parse(localStorage.getItem('ventas')) || [];
+            const ventasFiltradas = ventas.filter(venta => {
+                const cumpleFecha = !fecha || venta.fecha === fecha;
+                const cumpleBusqueda = !busqueda || 
+                                     venta.producto.toLowerCase().includes(busqueda);
+                
+                return cumpleFecha && cumpleBusqueda;
+            });
+            
+            mostrarVentasFiltradas(ventasFiltradas);
+        }
+    
+        function mostrarVentasFiltradas(ventas) {
+            const ventasBody = document.getElementById('ventas-body');
+            ventasBody.innerHTML = '';
+            
+            ventas.forEach(venta => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${venta.fecha}</td>
+                    <td>${venta.producto}</td>
+                    <td>${venta.cantidad}</td>
+                    <td>${venta.precioUnitario}</td>
+                    <td>${venta.total}</td>
+                `;
+                ventasBody.appendChild(fila);
+            });
+            
+            calcularTotal();
+        }
+    
+        // Cargar ventas al iniciar la página
+        document.addEventListener('DOMContentLoaded', cargarVentas);
+    </script>
+</body>
+</html>
+

@@ -159,6 +159,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial state
     togglePaymentMethod();
+
+    const confirmBtn = document.querySelector('.confirm-btn');
+    confirmBtn.addEventListener('click', function() {
+        // Obtener los detalles del producto
+        const producto = document.querySelector('.product-details h3').textContent;
+        const cantidad = parseInt(document.querySelector('.quantity').textContent.replace('Cantidad: ', ''));
+        const precioUnitario = document.querySelector('.price').textContent;
+        const total = document.querySelector('.total span:last-child').textContent;
+
+        // Crear objeto de venta
+        const venta = {
+            fecha: new Date().toISOString().split('T')[0],
+            producto: producto,
+            cantidad: cantidad,
+            precioUnitario: precioUnitario,
+            total: total
+        };
+
+        // Obtener ventas existentes del localStorage
+        let ventas = JSON.parse(localStorage.getItem('ventas')) || [];
+        
+        // Agregar nueva venta
+        ventas.push(venta);
+        
+        // Guardar en localStorage
+        localStorage.setItem('ventas', JSON.stringify(ventas));
+
+        // Redirigir a la página de confirmación
+        window.location.href = 'confirmacion.html';
+    });
 });
 </script>
              

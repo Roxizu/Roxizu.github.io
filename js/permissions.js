@@ -4,7 +4,10 @@ function checkPermissions() {
         .then(data => {
             const addProductBtn = document.querySelector('.add-product-btn');
             const viewProductsBtn = document.querySelector('.view-products-btn');
-            
+            const salesBtn = document.querySelector('.sales-btn');
+
+
+
             if (addProductBtn) {
                 if (!data.logged_in || data.rol !== 'empresa') {
                     addProductBtn.style.display = 'none';
@@ -14,6 +17,12 @@ function checkPermissions() {
             if (viewProductsBtn) {
                 if (!data.logged_in || data.rol !== 'empresa') {
                     viewProductsBtn.style.display = 'none';
+                }
+            }
+
+            if (salesBtn) {
+                if (!data.logged_in || data.rol !== 'empresa') {
+                    salesBtn.style.display = 'none';
                 }
             }
         });

@@ -21,7 +21,7 @@ $precio_regular = $_POST['product-price'] ?? null;
 $precio_oferta = $_POST['product-sale-price'] ?? null;
 $stock = $_POST['product-stock'] ?? null;
 $sku = $_POST['product-sku'] ?? null;
-$estado = $_POST['product-status'] ?? null;
+$estado = $_POST['estado'] ?? null;
 
 // Validar que los campos obligatorios estén llenos
 if (

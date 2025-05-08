@@ -489,6 +489,20 @@ nav ul {
     margin-left: 10px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
+    min-width: 160px;
+    justify-content: center;
+}
+
+.add-product-btn:hover, .view-products-btn:hover, .sales-btn:hover {
+    background-color: #6a0dad;
+}
+
+.add-product-btn svg, .view-products-btn svg, .sales-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.add-product-btn:hover svg, .view-products-btn:hover svg, .sales-btn:hover svg {
+    transform: scale(1.1);
 }
 
 .view-products-btn:hover {
@@ -554,6 +568,27 @@ footer {
 .footerboton p {
     margin: 0;
     font-size: 14px;
+}
+
+.sales-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #470c6a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.sales-btn:hover {
+    background-color: #6a0dad;
+}
+
+.sales-btn svg {
+    stroke: white;
 }
 
     

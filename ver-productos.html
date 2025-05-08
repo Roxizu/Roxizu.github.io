@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/ver-productos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <nav class="navbar">
         <a href="perfil-empresa.html">
@@ -58,12 +60,108 @@
             <h2>Confirmar Eliminación</h2>
             <p>¿Estás seguro de que deseas eliminar este producto?</p>
             <div class="modal-buttons">
-                <button id="confirmDelete" class="btn btn-delete">Eliminar</button>
+                <button id="confirmDelete" class="btn btn-danger">Eliminar</button>
                 <button id="cancelDelete" class="btn">Cancelar</button>
             </div>
         </div>
     </div>
 
+    <!-- Modal para editar producto -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Producto</h2>
+            <form id="editProductForm">
+                <div class="form-group">
+                    <label for="editName">Nombre:</label>
+                    <input type="text" id="editName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Imagen Actual:</label>
+                    <div class="current-image-preview">
+                        <img id="currentProductImage" src="" alt="Imagen actual del producto">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editImage">Nueva imagen:</label>
+                    <input type="file" id="editImage" accept="image/*" onchange="previewImage(this)">
+                    <div class="image-preview" id="imagePreview">
+                        <img id="previewImg" src="" alt="Vista previa">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="editCategory">Categoría:</label>
+                    <input type="text" id="editCategory" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPrice">Precio:</label>
+                    <input type="number" id="editPrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStock">Stock:</label>
+                    <input type="number" id="editStock" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStatus">Estado:</label>
+                    <select id="editStatus" required>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                        <option value="proximamente">Próximamente</option>
+                    </select>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-save">Guardar</button>
+                    <button type="button" class="btn" onclick="closeEditModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="js/ver-productos.js"></script>
 </body>
+
 </html>
+<script>
+function showDeleteConfirmation(productId) {
+    const modal = document.getElementById('deleteModal');
+    modal.style.display = 'block';
+    
+    // Almacenar el ID del producto para usarlo en la confirmación
+    document.getElementById('confirmDelete').setAttribute('data-product-id', productId);
+}
+
+// Evento para el botón de confirmar eliminación
+document.getElementById('confirmDelete').addEventListener('click', function() {
+    const productId = this.getAttribute('data-product-id');
+    
+    fetch('php/eliminar-producto.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: productId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Cerrar el modal
+            document.getElementById('deleteModal').style.display = 'none';
+            // Recargar la tabla o eliminar la fila
+            location.reload();
+        } else {
+            alert('Error al eliminar el producto: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al eliminar el producto');
+    });
+});
+
+// Evento para el botón de cancelar
+document.getElementById('cancelDelete').addEventListener('click', function() {
+    document.getElementById('deleteModal').style.display = 'none';
+});
+</script>

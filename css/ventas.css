@@ -1,0 +1,157 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f0ff;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.ventas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.titulo-ventas {
+    color: #470c6a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+/* Estilos de la tabla */
+.tabla-ventas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabla-ventas th, 
+.tabla-ventas td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla-ventas th {
+    background-color: #470c6a;
+    color: white;
+}
+
+.tabla-ventas tr:hover {
+    background-color: #f5f0ff;
+}
+
+/* Sección de filtros */
+.filtros {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filtro-input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.btn-filtrar {
+    background-color: #470c6a;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-filtrar:hover {
+    background-color: #6a0dad;
+}
+
+/* Total de ventas */
+.total-ventas {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    color: #470c6a;
+    padding: 20px;
+    border-top: 2px solid #470c6a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filtro-input {
+        width: 100%;
+    }
+
+    .tabla-ventas {
+        font-size: 14px;
+    }
+
+    .tabla-ventas th, 
+    .tabla-ventas td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ventas-container {
+        padding: 10px;
+    }
+
+    .titulo-ventas {
+        font-size: 20px;
+    }
+
+    .total-ventas {
+        font-size: 16px;
+    }
+}
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #6a0dad;
+}
+
+.back-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover svg {
+    transform: translateX(-3px);
+}

@@ -57,11 +57,14 @@
                         <label for="password" class="required">Contraseña</label>
                         <input type="password" id="password" name="passworduser" required>
                     </div>
-
-
                 </div>
 
-
+                <div class="form-group terms-container">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="terms-label">
+                        Acepto los <a href="#" onclick="mostrarTerminos()">términos y condiciones</a>
+                    </label>
+                </div>
 
                 <button type="submit">Registrar empresa</button>
             </form>
@@ -84,7 +87,6 @@
 
 </html>
 
-<!-- Add this before closing </head> tag -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('registroForm');
@@ -99,9 +101,24 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Validate terms acceptance
+        const termsCheckbox = document.getElementById('terms');
+        if (!termsCheckbox.checked) {
+            alert('Debe aceptar los términos y condiciones para continuar');
+            return;
+        }
 
-        // If all validations pass, submit the form
         form.submit();
     });
 });
+
+function mostrarTerminos() {
+    alert('Términos y Condiciones\n\n' +
+          'Por favor lea cuidadosamente los siguientes términos y condiciones antes de registrarse:\n\n' +  
+          '1. La empresa se compromete a proporcionar información verídica.\n' +
+          '2. Los datos proporcionados serán utilizados únicamente para fines comerciales.\n' +
+          '3. La empresa acepta mantener la confidencialidad de su cuenta.\n' +
+          '3. La empresa acepta dar el 5% de sus ganancias a Electronica S.M.R.\n' +
+          '4. Nos reservamos el derecho de suspender cuentas que violen nuestras políticas.');
+}
 </script>

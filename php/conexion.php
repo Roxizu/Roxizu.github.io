@@ -11,8 +11,4 @@ $conn = new mysqli(hostname: $host, username: $user, password: $password, databa
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
-else{
-    echo "conexion exitosa";
-}
-
 ?>
